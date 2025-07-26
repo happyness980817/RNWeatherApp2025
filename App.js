@@ -1,13 +1,50 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
   return (
-    <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: "tomato" }}></View>
-      <View style={{ flex: 1, backgroundColor: "teal" }}></View>
-      <View style={{ flex: 1, backgroundColor: "orange" }}></View>
-    </View> // 모든 View 는 flex container
-    // RN 에서 flex direction 의 기본값은 column
+    <View style={styles.container}>
+      <View style={styles.city}>
+        <Text style={styles.cityName}>Seoul</Text>
+      </View>
+      <View style={styles.weather}>
+        <View style={styles.day}>
+          <Text style={styles.temp}>35°C</Text>
+          <Text style={styles.description}>Sunny</Text>
+        </View>
+      </View>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "teal",
+  },
+  city: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  cityName: {
+    fontSize: 38,
+    fontWeight: "500",
+  },
+  weather: {
+    flex: 3,
+  },
+  day: {
+    flex: 1,
+    alignItems: "center",
+  },
+  temp: {
+    marginTop: 50,
+    marginBottom: 20,
+    fontSize: 108,
+    fontWeight: "600",
+  },
+  description: {
+    fontSize: 30,
+  },
+});
